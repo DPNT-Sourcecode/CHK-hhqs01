@@ -17,7 +17,7 @@ class TestSum():
         except ValueError as err:
             assert str(err) == "Input is not in the expected range"
 
-    def test_sum_out_of_bounds_x_not_int():
+    def test_sum_out_of_bounds_x_not_int(self):
         try:
             sum_solution.compute("SomeString", 2)
         except TypeError as err:
@@ -40,5 +40,6 @@ class TestSum():
             sum_solution.compute(1, "String")
         except TypeError as err:
             assert str(err) == "Input is not an integer"
+
 
 
