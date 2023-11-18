@@ -28,4 +28,11 @@ PRICE_TABLE = {
 # noinspection PyUnusedLocal
 # skus = unicode string
 def checkout(skus):
+    if not _check_input(skus):
+        return -1
     raise NotImplementedError()
+
+def _check_input(skus):
+    pattern = re.compile(r'^[A-D]')
+    return bool(pattern.match(skus))
+
