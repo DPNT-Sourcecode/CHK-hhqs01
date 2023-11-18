@@ -47,10 +47,22 @@ def create_basket(skus):
     return basket
 
 def compute_price(basket):
-    return 0
+    price = 0
+    for item in basket:
+        price_for_item = 0
+        item_number_to_account = basket[item]
+        if "offer" in PRICE_TABLE[item]:
+            price_for_item = 0
+        else:
+            price_for_item = item_number_to_account * PRICE_TABLE[item]["price"]
 
-    
-    
+        price += price_for_item
+
+    return price
+
+def compute_price_for_item(item, basket):
+    pass
 
 def _is_valid_input(character):
     return character in ["A", "B", "C", "D"]
+
