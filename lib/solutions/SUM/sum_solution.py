@@ -11,6 +11,3 @@ def check_parameter(parameter):
     
     if parameter > 100 or parameter < 0:
         raise ValueError("Input is not in the expected range")
-
-
-

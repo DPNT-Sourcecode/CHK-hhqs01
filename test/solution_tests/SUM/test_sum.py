@@ -40,6 +40,3 @@ class TestSum():
             sum_solution.compute(1, "String")
         except TypeError as err:
             assert str(err) == "Input is not an integer"
-
-
-
