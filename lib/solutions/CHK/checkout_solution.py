@@ -28,8 +28,13 @@ PRICE_TABLE = {
 # noinspection PyUnusedLocal
 # skus = unicode string
 def checkout(skus):
-    pass
+    basket = {}
+    try:
+        basket = create_basket(skus)
+    except ValueError:
+        return -1
 
+    return compute_price(basket)
 
 def create_basket(skus):
     basket = {}
