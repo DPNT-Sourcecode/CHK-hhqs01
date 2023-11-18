@@ -28,11 +28,18 @@ PRICE_TABLE = {
 # noinspection PyUnusedLocal
 # skus = unicode string
 def checkout(skus):
-    if not _check_input(skus):
-        return -1
-    raise NotImplementedError()
+    basket = {}
+    for character in skus:
+        if not _is_valid_input(character):
+            return -1
+        
+        if character in basket:
+            basket[character] += 1
+        else:
+            basket[character] == 1
 
 def _is_valid_input(character):
     return character in ["A", "B", "C", "D"]
+
 
 
