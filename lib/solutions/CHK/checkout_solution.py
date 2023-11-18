@@ -1,4 +1,6 @@
 
+import re
+
 PRICE_TABLE = {
     "A" : {
         "price": 50,
@@ -27,4 +29,3 @@ PRICE_TABLE = {
 # skus = unicode string
 def checkout(skus):
     raise NotImplementedError()
-
