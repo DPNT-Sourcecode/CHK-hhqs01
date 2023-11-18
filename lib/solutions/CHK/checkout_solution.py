@@ -1,6 +1,9 @@
 
 import re
 
+# Sum took longer because I had to switch devices, and didnt hit pause on the previous device while making my current one work, aorund 30 minutes
+# Paused at CHK part 1 because it's late
+
 PRICE_TABLE = {
     "A" : {
         "price": 50,
@@ -60,9 +63,12 @@ def compute_price(basket):
 
     return price
 
+
+
 def compute_price_for_item(item, basket):
     pass
 
 def _is_valid_input(character):
     return character in ["A", "B", "C", "D"]
+
 
