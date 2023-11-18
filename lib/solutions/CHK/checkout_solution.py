@@ -42,10 +42,7 @@ def create_basket(skus):
         if not _is_valid_input(character):
             raise ValueError("Unrecognized SKU value!")
         
-        if character in basket:
-            basket[character] += 1
-        else:
-            basket[character] == 1
+        basket[character] = basket.get(character, 0) + 1
     
     return basket
 
