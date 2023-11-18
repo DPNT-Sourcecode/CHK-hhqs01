@@ -32,7 +32,7 @@ def checkout(skus):
         return -1
     raise NotImplementedError()
 
-def _check_input(skus):
-    pattern = re.compile(r'^[A-D]')
-    return bool(pattern.match(skus))
+def _is_valid_input(character):
+    return character in ["A", "B", "C", "D"]
+
 
