@@ -49,13 +49,13 @@ class TestCheckout():
         price = 100
 
         offers = [
-            {"type": "BUNDLE", "count": 5, "price": 200},
-            {"type": "BUNDLE", "count": 3, "price": 130}
+            {"for_item": "A", "type": "BUNDLE", "count": 5, "price": 200},
+            {"for_item": "A", "type": "BUNDLE", "count": 3, "price": 130}
         ]
 
         expected_price = price
 
-        actual_price, actual_basket = checkout_solution.handle_bundle_offers(item, basket, price, offers)
+        actual_price, actual_basket = checkout_solution.handle_bundle_offers(basket, price, offers)
 
         assert expected_price == actual_price
         assert basket == actual_basket
@@ -70,14 +70,14 @@ class TestCheckout():
         price = 9 * 50
 
         offers = [
-            {"type": "BUNDLE", "count": 5, "price": 200},
-            {"type": "BUNDLE", "count": 3, "price": 130}
+            {"for_item": "A", "type": "BUNDLE", "count": 5, "price": 200},
+            {"for_item": "A", "type": "BUNDLE", "count": 3, "price": 130}
         ]
 
         expected_price = 200 + 130 + 50
         expected_basket = {"A": 1}
 
-        actual_price, actual_basket = checkout_solution.handle_bundle_offers(item, basket, price, offers)
+        actual_price, actual_basket = checkout_solution.handle_bundle_offers(basket, price, offers)
 
         assert expected_price == actual_price
         assert expected_basket == actual_basket
@@ -100,7 +100,7 @@ class TestCheckout():
         expected_price = 200 + 200 + 130
         expected_basket = {"A": 0}
 
-        actual_price, actual_basket = checkout_solution.handle_bundle_offers(item, basket, price, offers)
+        actual_price, actual_basket = checkout_solution.handle_bundle_offers(basket, price, offers)
 
         assert expected_price == actual_price
         assert expected_basket == actual_basket
@@ -122,7 +122,7 @@ class TestCheckout():
         expected_price = 130
         expected_basket = {"A": 0}
 
-        actual_price, actual_basket = checkout_solution.handle_bundle_offers(item, basket, price, offers)
+        actual_price, actual_basket = checkout_solution.handle_bundle_offers(basket, price, offers)
 
         assert expected_price == actual_price
         assert expected_basket == actual_basket
@@ -144,7 +144,7 @@ class TestCheckout():
         expected_price = 200 + 50
         expected_basket = {"A": 1}
 
-        actual_price, actual_basket = checkout_solution.handle_bundle_offers(item, basket, price, offers)
+        actual_price, actual_basket = checkout_solution.handle_bundle_offers(basket, price, offers)
 
         assert expected_price == actual_price
         assert expected_basket == actual_basket
@@ -166,10 +166,11 @@ class TestCheckout():
         expected_price = 2 * 40
         expected_basket = { "B": 0, "E" : 2}
 
-        actual_price, actual_basket = checkout_solution.handle_get_free_offers(item, basket, price, offers)
+        actual_price, actual_basket = checkout_solution.handle_get_free_offers(basket, price, offers)
 
         assert expected_price == actual_price
         assert expected_basket == actual_basket
+
 
 
 

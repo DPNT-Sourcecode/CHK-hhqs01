@@ -1,45 +1,9 @@
 PRICE_TABLE = {
-    "A" : {
-        "price": 50,
-        "offer": [
-            {
-                "count": 5,
-                "offer_price": 200,
-                "TYPE": "BUNDLE"
-            },
-            {
-                "count": 3,
-                "offer_price": 130,
-                "TYPE": "BUNDLE"
-            },
-        ]
-    },
-    "B" : {
-        "price": 30,
-        "offer": [
-            {    
-                "count": 2,
-                "offer_price": 45,
-                "type" : "BUNDLE"
-            }
-        ]
-    },
-    "C" : {
-        "price": 20,
-    },
-    "D" : {
-        "price": 15
-    },
-    "E": {
-        "price": 20,
-        "offer": [
-            {
-                "count": 2,
-                "type": "GET_FREE",
-                "item_free": "B"
-            }
-        ]
-    }
+    "A" : 50,
+    "B" : 30,
+    "C" : 20,
+    "D" : 15,
+    "E" : 40
 }  
 
 OFFERS = [
@@ -95,7 +59,8 @@ def compute_price(basket):
     for item in basket:
         price += compute_price_for_item(item, basket)
 
-    return apply_offers(basket, price)
+    price = apply_offers(basket, price)
+    return price
 
 
 
@@ -140,6 +105,7 @@ def handle_get_free_offers(basket, price, offers):
 
 def _is_valid_input(character):
     return character in ["A", "B", "C", "D", "E"]
+
 
 
 
