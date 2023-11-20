@@ -51,3 +51,16 @@ class TestCheckout():
         expected_price = 260
 
         assert expected_price == actual_price
+
+    def test_compute_price_for_item_has_no_offer(self):
+        basket = {
+            "D": 6
+        }
+
+        item = "D"
+
+        actual_price = checkout_solution.compute_price_for_item(item, basket)
+
+        expected_price = 15 * 6
+
+        assert expected_price == actual_price
