@@ -56,7 +56,7 @@ OFFERS = [
                 "TYPE": "BUNDLE"
             },
             {
-                "for_item": "B"    
+                "for_item": "B",  
                 "count": 2,
                 "offer_price": 45,
                 "type" : "BUNDLE"
@@ -138,5 +138,6 @@ def handle_get_free_offers(item, basket, price, offers):
 
 def _is_valid_input(character):
     return character in ["A", "B", "C", "D", "E"]
+
 
 
