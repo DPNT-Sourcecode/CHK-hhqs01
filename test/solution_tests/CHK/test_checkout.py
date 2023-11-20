@@ -149,8 +149,23 @@ class TestCheckout():
         assert expected_price == actual_price
         assert expected_basket == actual_basket
 
+    def test_handle_get_free_offers(self):
+        item = "E"
+        
+        basket = {
+            "B": 1,
+            "E": 2
+        }
 
+        price = 30 + 2 * 40
 
+        offers = [
+            {"type": "GET_FREE", "count": 2, "item_free": "B"}
+        ]
 
+        expected_price = 2 * 40
+        expected_basket = { "B": 0, "E" : 2}
 
+        assert expected_price == actual_price
+        assert expected_basket == actual_basket
 
