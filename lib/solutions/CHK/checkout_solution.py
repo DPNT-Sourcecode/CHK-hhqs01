@@ -101,14 +101,15 @@ def handle_get_free_offers(item, basket, price, offers):
     for offer in offers:
         apply_times = basket[item] // offer["count"]
         # This assumes you only get one free
-        discount = min(apply_times, basket[offer["item_free"]]) * PRICE_TABLE[offer["item_free"]]
+        discount = min(apply_times, basket[offer["item_free"]]) * PRICE_TABLE[offer["item_free"]]["price"]
         basket[offer["item_free"]] = min(0, basket[offer["item_free"]] - apply_times)
         price -= discount
 
-    return price
+    return (price, basket)
 
 
 
 
 def _is_valid_input(character):
     return character in ["A", "B", "C", "D", "E"]
+
