@@ -13,13 +13,14 @@ class TestCheckout():
             assert True
 
     def test_basket_valid(self):
-        skus = "AAAABBCCCCCD"
+        skus = "AAAABBCCCCCDEE"
 
         expected_basket = {
             "A": 4,
             "B": 2,
             "C": 5,
-            "D": 1
+            "D": 1,
+            "E": 2
         }
 
         actual_basket = checkout_solution.create_basket(skus)
