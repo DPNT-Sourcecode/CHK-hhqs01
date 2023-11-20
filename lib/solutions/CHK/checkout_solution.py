@@ -55,6 +55,7 @@ def create_basket(skus):
         
         basket[character] = basket.get(character, 0) + 1
     
+    print("Basket", basket)
     return basket
 
 def compute_price(basket):
@@ -69,6 +70,7 @@ def apply_offers(basket):
     get_free_offers = [get_free_offer for get_free_offer in OFFERS if get_free_offer["type"] == "GET_FREE"]
 
     basket = handle_get_free_offers(basket, get_free_offers)
+    print(basket)
 
     price = compute_price(basket)
 
@@ -100,6 +102,7 @@ def handle_get_free_offers(basket, offers):
 
 def _is_valid_input(character):
     return character in ["A", "B", "C", "D", "E"]
+
 
 
 
