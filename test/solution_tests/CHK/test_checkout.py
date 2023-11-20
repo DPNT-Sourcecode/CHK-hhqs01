@@ -13,7 +13,7 @@ class TestCheckout():
 
     def test_basket_invalid(self):
         try:
-            skus = "ABCDEFG"
+            skus = "a"
             checkout_solution.create_basket(skus)
         except ValueError:
             assert True
@@ -194,6 +194,7 @@ class TestCheckout():
         actual_basket = checkout_solution.handle_get_free_offers(basket, offers)
 
         assert expected_basket == actual_basket
+
 
 
 
