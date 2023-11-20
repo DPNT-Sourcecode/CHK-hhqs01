@@ -62,15 +62,14 @@ def compute_price_for_item(item, basket):
     price_for_item = 0
     item_number_to_account = basket[item]
     if "offer" in PRICE_TABLE[item]:
-        if item_number_to_account // PRICE_TABLE[item]["offer"]["count"] != 0:
-            # Find out how many times we satisfy the offer
-            price += item_number_to_account // PRICE_TABLE[item]["offer"]["count"] * PRICE_TABLE[item]["offer"]["offer_price"]   
-            # Add the non offer ones
-            price += item_number_to_account % PRICE_TABLE[item]["offer"]["count"] * PRICE_TABLE[item]["price"]
+        # Find out how many times we satisfy the offer
+        price_for_item += item_number_to_account // PRICE_TABLE[item]["offer"]["count"] * PRICE_TABLE[item]["offer"]["offer_price"]   
+        # Add the non offer ones
+        price_for_item += item_number_to_account % PRICE_TABLE[item]["offer"]["count"] * PRICE_TABLE[item]["price"]
     else:
         price_for_item = item_number_to_account * PRICE_TABLE[item]["price"]
 
-    price += price_for_item
+    return price_for_item
 
 def _is_valid_input(character):
     return character in ["A", "B", "C", "D"]
