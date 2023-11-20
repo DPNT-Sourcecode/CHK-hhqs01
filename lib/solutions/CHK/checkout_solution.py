@@ -70,5 +70,3 @@ def compute_price_for_item(item, basket):
 
 def _is_valid_input(character):
     return character in ["A", "B", "C", "D"]
-
-
