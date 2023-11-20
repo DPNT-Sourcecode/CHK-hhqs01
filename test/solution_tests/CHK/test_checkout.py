@@ -4,9 +4,10 @@ class TestCheckout():
 
     def test_checkout(self):
         assert 1 == 1
-        #SKUS = "AAAAAAAAABBBCEE"
-        price = checkout_solution.checkout("A")
-        assert price == 0
+        SKUS = "AAAAAAAAABBBCEE"
+        expected_price = 0
+        actual_price = checkout_solution.checkout(SKUS)
+        assert expected_price == actual_price
 
     def test_basket_invalid(self):
         try:
@@ -194,5 +195,6 @@ class TestCheckout():
 
         assert expected_price == actual_price
         assert expected_basket == actual_basket
+
 
 
