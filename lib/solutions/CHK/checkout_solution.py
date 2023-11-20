@@ -42,6 +42,32 @@ PRICE_TABLE = {
     }
 }  
 
+OFFERS = [
+            {
+                "for_item": "A",
+                "count": 5,
+                "offer_price": 200,
+                "TYPE": "BUNDLE"
+            },
+            {
+                "for_item": "A",
+                "count": 3,
+                "offer_price": 130,
+                "TYPE": "BUNDLE"
+            },
+            {
+                "for_item": "B"    
+                "count": 2,
+                "offer_price": 45,
+                "type" : "BUNDLE"
+            },
+            {
+                "for_item": "E",
+                "count": 2,
+                "type": "GET_FREE",
+                "item_free": "B"
+            }
+]
 
 # noinspection PyUnusedLocal
 # skus = unicode string
@@ -112,4 +138,5 @@ def handle_get_free_offers(item, basket, price, offers):
 
 def _is_valid_input(character):
     return character in ["A", "B", "C", "D", "E"]
+
 
