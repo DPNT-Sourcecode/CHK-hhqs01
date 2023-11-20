@@ -59,15 +59,11 @@ def create_basket(skus):
     return basket
 
 def compute_price(basket):
-    price = apply_offers(basket)
+    price = 0
+    for item in basket:
+        price += basket[item] * PRICE_TABLE[item]
+
     return price
-
-
-
-def compute_price_for_item(item, basket):
-    item_number_to_account = basket[item]
-    return item_number_to_account * PRICE_TABLE[item]
-    
 
 def apply_offers(basket):
     bundle_offers = [bundle_offer for bundle_offer in OFFERS if bundle_offer["type"] == "BUNDLE"]
@@ -105,6 +101,7 @@ def handle_get_free_offers(basket, offers):
 
 def _is_valid_input(character):
     return character in ["A", "B", "C", "D", "E"]
+
 
 
 
