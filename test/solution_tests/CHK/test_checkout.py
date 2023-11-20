@@ -55,9 +55,10 @@ class TestCheckout():
 
         expected_price = price
 
-        actual_price = checkout_solution.handle_bundle_offers(item, basket, price, offers)
+        actual_price, actual_basket = checkout_solution.handle_bundle_offers(item, basket, price, offers)
 
         assert expected_price == actual_price
+        assert basket == actual_basket
 
     def test_handle_bundle_offer_better_offer_first(self):
         item = "A"
@@ -74,10 +75,12 @@ class TestCheckout():
         ]
 
         expected_price = 200 + 130 + 50
+        expected_basket = {"A": 1}
 
-        actual_price = checkout_solution.handle_bundle_offers(item, basket, price, offers)
+        actual_price, actual_basket = checkout_solution.handle_bundle_offers(item, basket, price, offers)
 
         assert expected_price == actual_price
+        assert expected_basket == actual_basket
         
 
     def test_hande_bundle_offer_multiple_offers(self):
@@ -95,10 +98,12 @@ class TestCheckout():
         ]
 
         expected_price = 200 + 200 + 130
+        expected_basket = {"A": 0}
 
-        actual_price = checkout_solution.handle_bundle_offers(item, basket, price, offers)
+        actual_price, actual_basket = checkout_solution.handle_bundle_offers(item, basket, price, offers)
 
         assert expected_price == actual_price
+        assert expected_basket == actual_basket
 
     def test_hande_bundle_offer_multiple_offers_larger_unsatisfied(self):
         item = "A"
@@ -115,10 +120,12 @@ class TestCheckout():
         ]
 
         expected_price = 130
+        expected_basket = {"A": 0}
 
-        actual_price = checkout_solution.handle_bundle_offers(item, basket, price, offers)
+        actual_price, actual_basket = checkout_solution.handle_bundle_offers(item, basket, price, offers)
 
         assert expected_price == actual_price
+        assert expected_basket == actual_basket
 
     def test_hande_bundle_offer_multiple_offers_smaller_unsatisfied(self):
         item = "A"
@@ -135,10 +142,13 @@ class TestCheckout():
         ]
 
         expected_price = 200 + 50
+        expected_basket = {"A": 1}
 
-        actual_price = checkout_solution.handle_bundle_offers(item, basket, price, offers)
+        actual_price, actual_basket = checkout_solution.handle_bundle_offers(item, basket, price, offers)
 
         assert expected_price == actual_price
+        assert expected_basket == actual_basket
+
 
 
 
