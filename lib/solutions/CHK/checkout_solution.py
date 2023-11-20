@@ -46,7 +46,7 @@ def checkout(skus):
         return -1
 
     print(basket)
-    return compute_price(basket)
+    return apply_offers(basket)
 
 def create_basket(skus):
     basket = {}
@@ -59,7 +59,7 @@ def create_basket(skus):
     return basket
 
 def compute_price(basket):
-    price = apply_offers(basket, price)
+    price = apply_offers(basket)
     return price
 
 
@@ -105,5 +105,6 @@ def handle_get_free_offers(basket, offers):
 
 def _is_valid_input(character):
     return character in ["A", "B", "C", "D", "E"]
+
 
 
