@@ -93,7 +93,8 @@ def handle_get_free_offers(basket, offers):
     for offer in offers:
         item = offer["for_item"]
         apply_times = basket.get(item, 0) // offer["count"]
-        basket[offer["item_free"]] = min(0, basket.get(offer["item_free"], 0) - apply_times)
+        print(apply_times)
+        basket[offer["item_free"]] = max(0, basket.get(offer["item_free"], 0) - apply_times)
 
     return basket
 
@@ -102,6 +103,7 @@ def handle_get_free_offers(basket, offers):
 
 def _is_valid_input(character):
     return character in ["A", "B", "C", "D", "E"]
+
 
 
 
