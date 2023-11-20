@@ -38,7 +38,24 @@ class TestCheckout():
         assert expected_price == actual_price
 
     def test_handle_bundle_offer_no_offer(self):
-        pass
+        item = "A"
+
+        basket = {
+            "A": 2
+        }
+
+        price = 100
+
+        offers = [
+            {"type": "BUNDLE", "count": 5, "price": 200},
+            {"type": "BUNDLE", "count": 3, "price": 130}
+        ]
+
+        expected_price = price
+
+        actual_price = checkout_solution.apply_bundle_offers(item, basket, price, offers)
+
+        assert expected_price == actual_price
 
     def test_handle_bundle_offer_better_offer_first(self):
         pass
