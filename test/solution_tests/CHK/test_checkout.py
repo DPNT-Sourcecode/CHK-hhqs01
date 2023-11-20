@@ -190,11 +190,10 @@ class TestCheckout():
             {"for_item": "E", "type": "GET_FREE", "count": 2, "item_free": "B"}
         ]
 
-        expected_price = 2 * 40
         expected_basket = { "B": 0, "E" : 2}
 
-        actual_price, actual_basket = checkout_solution.handle_get_free_offers(basket, price, offers)
+        actual_basket = checkout_solution.handle_get_free_offers(basket, offers)
 
-        assert expected_price == actual_price
         assert expected_basket == actual_basket
+
 
