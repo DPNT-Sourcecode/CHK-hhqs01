@@ -32,12 +32,13 @@ PRICE_TABLE = {
     },
     "E": {
         "price": 20,
-        "offer": {
-            "count": 2,
-            "type": "GET_FREE",
-            "item_free": "B"
-
-        }
+        "offer": [
+            {
+                "count": 2,
+                "type": "GET_FREE",
+                "item_free": "B"
+            }
+        ]
     }
 }  
 
@@ -78,8 +79,13 @@ def compute_price_for_item(item, basket):
     
 
 def apply_offers(basket, price):
+    for item in basket:
+        if "offer" in PRICE_TABLE["ITEM"]
+
+
     return 0
 
 def _is_valid_input(character):
     return character in ["A", "B", "C", "D", "E"]
+
 
