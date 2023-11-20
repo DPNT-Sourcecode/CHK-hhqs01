@@ -103,10 +103,3 @@ def handle_get_free_offers(basket, offers):
 
 def _is_valid_input(character):
     return character in ["A", "B", "C", "D", "E"]
-
-
-
-
-
-
-
