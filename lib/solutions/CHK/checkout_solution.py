@@ -9,14 +9,14 @@ PRICE_TABLE = {
         "price": 50,
         "offer": {
             "count": 3,
-            "price": 130
+            "offer_price": 130
         }
     },
     "B" : {
         "price": 30,
         "offer": {
             "count": 2,
-            "price": 45
+            "offer_price": 45
         }
     },
     "C" : {
@@ -52,21 +52,26 @@ def create_basket(skus):
 def compute_price(basket):
     price = 0
     for item in basket:
-        price_for_item = 0
-        item_number_to_account = basket[item]
-        if "offer" in PRICE_TABLE[item]:
-            price_for_item = 0
-        else:
-            price_for_item = item_number_to_account * PRICE_TABLE[item]["price"]
-
-        price += price_for_item
+        price += compute_price_for_item(item, basket)
 
     return price
 
 
 
 def compute_price_for_item(item, basket):
-    pass
+    price_for_item = 0
+    item_number_to_account = basket[item]
+    if "offer" in PRICE_TABLE[item]:
+        if item_number_to_account // PRICE_TABLE[item]["offer"]["count"] != 0:
+            # Find out how many times we satisfy the offer
+            price += item_number_to_account // PRICE_TABLE[item]["offer"]["count"] * PRICE_TABLE[item]["offer"]["offer_price"]   
+            # Add the non offer ones
+            price += item_number_to_account % PRICE_TABLE[item]["offer"]["count"] * PRICE_TABLE[item]["price"]
+    else:
+        price_for_item = item_number_to_account * PRICE_TABLE[item]["price"]
+
+    price += price_for_item
 
 def _is_valid_input(character):
     return character in ["A", "B", "C", "D"]
+
