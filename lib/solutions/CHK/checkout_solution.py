@@ -87,12 +87,26 @@ def apply_offers(basket, price):
 
     return price
 
+def handle_bundle_offers(item, basket, price, offers):
+    for offer in offers:
+        apply_times = basket[item] // offer["count"]
+        total_discount = apply_times * (PRICE_TABLE[item] - ((offer["count"] * PRICE_TABLE[item]) - offer["price"]))
+
+        basket[item] = basket[item] % offer["count"]
+
+        price -= total_discount
+        
+    return price
+
 def handle_get_free_offers(item, basket, price, offers):
     for offer in offers:
         apply_times = basket[item] // offer["count"]
+        pass
+
 
 def _is_valid_input(character):
     return character in ["A", "B", "C", "D", "E"]
+
 
 
 
