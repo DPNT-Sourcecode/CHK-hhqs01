@@ -81,13 +81,31 @@ class TestCheckout():
         
 
     def test_hande_bundle_offer_multiple_offers(self):
-        pass
+        item = "A"
+
+        basket = {
+            "A": 13
+        }
+
+        price = 13 * 50
+
+        offers = [
+            {"type": "BUNDLE", "count": 5, "price": 200},
+            {"type": "BUNDLE", "count": 3, "price": 130}
+        ]
+
+        expected_price = 200 + 200 + 130
+
+        actual_price = checkout_solution.handle_bundle_offers(item, basket, price, offers)
+
+        assert expected_price == actual_price
 
     def test_hande_bundle_offer_multiple_offers_larger_unsatisfied(self):
         pass
 
     def test_hande_bundle_offer_multiple_offers_smaller_unsatisfied(self):
         pass
+
 
 
 
