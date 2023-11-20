@@ -80,12 +80,15 @@ def compute_price_for_item(item, basket):
 
 def apply_offers(basket, price):
     for item in basket:
-        if "offer" in PRICE_TABLE["ITEM"]
+        if "offer" in PRICE_TABLE["ITEM"]:
+            bundle_offers = [bundle_offer for bundle_offer in PRICE_TABLE[item]["offer"] if bundle_offer["type"] == "BUNDLE_OFFER"]
+            get_free_offers = [get_free_offer for get_free_offer in PRICE_TABLE[item]["offer"] if get_free_offer["type"] == "GET_FREE"]
 
 
-    return 0
+    return price
 
 def _is_valid_input(character):
     return character in ["A", "B", "C", "D", "E"]
+
 
 
