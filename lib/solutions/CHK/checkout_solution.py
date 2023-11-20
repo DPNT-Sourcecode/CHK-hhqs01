@@ -59,11 +59,6 @@ def create_basket(skus):
     return basket
 
 def compute_price(basket):
-    price = 0
-    for item in basket:
-        price += compute_price_for_item(item, basket)
-
-    print("Price before offers", price)
     price = apply_offers(basket, price)
     return price
 
@@ -78,8 +73,11 @@ def apply_offers(basket):
     bundle_offers = [bundle_offer for bundle_offer in OFFERS if bundle_offer["type"] == "BUNDLE"]
     get_free_offers = [get_free_offer for get_free_offer in OFFERS if get_free_offer["type"] == "GET_FREE"]
 
+    basket = handle_get_free_offers(basket, get_free_offers)
+
+    price = compute_price(basket)
+
     price, basket = handle_bundle_offers(basket, price, bundle_offers)
-    price, basket = handle_get_free_offers(basket, price, get_free_offers)
 
     return price
 
@@ -94,7 +92,7 @@ def handle_bundle_offers(basket, price, offers):
 
     return (price, basket)
 
-def handle_get_free_offers(basket, price, offers):
+def handle_get_free_offers(basket, offers):
     for offer in offers:
         item = offer["for_item"]
         apply_times = basket.get(item, 0) // offer["count"]
@@ -103,10 +101,11 @@ def handle_get_free_offers(basket, price, offers):
         basket[offer["item_free"]] = min(0, basket.get(offer["item_free"], 0) - apply_times)
         price -= discount
 
-    return (price, basket)
+    return basket
 
 
 
 
 def _is_valid_input(character):
     return character in ["A", "B", "C", "D", "E"]
+
