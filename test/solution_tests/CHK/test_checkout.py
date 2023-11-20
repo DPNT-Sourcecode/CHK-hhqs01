@@ -3,13 +3,12 @@ from solutions.CHK import checkout_solution
 class TestCheckout():
 
     def test_checkout(self):
-        assert 1 == 1
         #SKUS = "AAAAAAAAABBBCEE"
 
-### AAA 130, AAAA 180, AAAAA 200
+# EEEEBB 160 BEBEEE 160 ABCDEABCDE 280
 
-        expected_price = 330
-        actual_price = checkout_solution.checkout("AAAAAAAA")
+        expected_price = 160
+        actual_price = checkout_solution.checkout("EEEEBB")
         assert expected_price == actual_price
 
     def test_basket_invalid(self):
@@ -198,6 +197,7 @@ class TestCheckout():
 
         assert expected_price == actual_price
         assert expected_basket == actual_basket
+
 
 
 
