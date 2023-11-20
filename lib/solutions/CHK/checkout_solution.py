@@ -105,12 +105,11 @@ def compute_price_for_item(item, basket):
     
 
 def apply_offers(basket, price):
-    bundle_offers = [bundle_offer for bundle_offer in PRICE_TABLE[item]["offer"] if bundle_offer["type"] == "BUNDLE_OFFER"]
-    get_free_offers = [get_free_offer for get_free_offer in PRICE_TABLE[item]["offer"] if get_free_offer["type"] == "GET_FREE"]
+    bundle_offers = [bundle_offer for bundle_offer in OFFERS if bundle_offer["type"] == "BUNDLE_OFFER"]
+    get_free_offers = [get_free_offer for get_free_offer in OFFERS if get_free_offer["type"] == "GET_FREE"]
 
-    for bundle_offer in bundle_offer:
-
-
+    price, basket = handle_bundle_offers(basket, price, bundle_offers)
+    price, basket = handle_get_free_offers(basket, price, get_free_offers)
 
     return price
 
@@ -141,6 +140,7 @@ def handle_get_free_offers(basket, price, offers):
 
 def _is_valid_input(character):
     return character in ["A", "B", "C", "D", "E"]
+
 
 
 

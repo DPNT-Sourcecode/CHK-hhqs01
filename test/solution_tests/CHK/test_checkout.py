@@ -93,8 +93,8 @@ class TestCheckout():
         price = 13 * 50
 
         offers = [
-            {"type": "BUNDLE", "count": 5, "price": 200},
-            {"type": "BUNDLE", "count": 3, "price": 130}
+            {"for_item": "A", "type": "BUNDLE", "count": 5, "price": 200},
+            {"for_item": "A", "type": "BUNDLE", "count": 3, "price": 130}
         ]
 
         expected_price = 200 + 200 + 130
@@ -115,8 +115,8 @@ class TestCheckout():
         price = 3 * 50
 
         offers = [
-            {"type": "BUNDLE", "count": 5, "price": 200},
-            {"type": "BUNDLE", "count": 3, "price": 130}
+            {"for_item": "A", "type": "BUNDLE", "count": 5, "price": 200},
+            {"for_item": "A", "type": "BUNDLE", "count": 3, "price": 130}
         ]
 
         expected_price = 130
@@ -137,8 +137,8 @@ class TestCheckout():
         price = 6 * 50
 
         offers = [
-            {"type": "BUNDLE", "count": 5, "price": 200},
-            {"type": "BUNDLE", "count": 3, "price": 130}
+            {"for_item": "A", "type": "BUNDLE", "count": 5, "price": 200},
+            {"for_item": "A", "type": "BUNDLE", "count": 3, "price": 130}
         ]
 
         expected_price = 200 + 50
@@ -160,7 +160,7 @@ class TestCheckout():
         price = 30 + 2 * 40
 
         offers = [
-            {"type": "GET_FREE", "count": 2, "item_free": "B"}
+            {"for_item": "E", "type": "GET_FREE", "count": 2, "item_free": "B"}
         ]
 
         expected_price = 2 * 40
@@ -170,5 +170,6 @@ class TestCheckout():
 
         assert expected_price == actual_price
         assert expected_basket == actual_basket
+
 
 
