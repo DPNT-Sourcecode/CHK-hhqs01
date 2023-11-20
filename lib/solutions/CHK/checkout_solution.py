@@ -36,6 +36,9 @@ OFFERS = [
 # noinspection PyUnusedLocal
 # skus = unicode string
 def checkout(skus):
+    if not skus:
+        return 0
+    
     basket = {}
     try:
         basket = create_basket(skus)
@@ -105,10 +108,3 @@ def handle_get_free_offers(basket, price, offers):
 
 def _is_valid_input(character):
     return character in ["A", "B", "C", "D", "E"]
-
-
-
-
-
-
-

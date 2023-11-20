@@ -194,8 +194,3 @@ class TestCheckout():
         assert expected_price == actual_price
         assert expected_basket == actual_basket
 
-
-
-
-
-
