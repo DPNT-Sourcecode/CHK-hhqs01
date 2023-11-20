@@ -45,7 +45,6 @@ def checkout(skus):
     except ValueError:
         return -1
 
-    print(basket)
     return apply_offers(basket)
 
 def create_basket(skus):
@@ -101,6 +100,7 @@ def handle_get_free_offers(basket, offers):
 
 def _is_valid_input(character):
     return character in ["A", "B", "C", "D", "E"]
+
 
 
 
