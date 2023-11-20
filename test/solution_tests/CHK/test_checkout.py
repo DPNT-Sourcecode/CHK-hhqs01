@@ -32,6 +32,8 @@ class TestCheckout():
             "A": 6
         }
 
+        item = "A"
+
         actual_price = checkout_solution.compute_price_for_item(item, basket)
         expected_price = 6 * 50
 
@@ -53,7 +55,7 @@ class TestCheckout():
 
         expected_price = price
 
-        actual_price = checkout_solution.apply_bundle_offers(item, basket, price, offers)
+        actual_price = checkout_solution.handle_bundle_offers(item, basket, price, offers)
 
         assert expected_price == actual_price
 
@@ -68,4 +70,5 @@ class TestCheckout():
 
     def test_hande_bundle_offer_multiple_offers_smaller_unsatisfied(self):
         pass
+
 
