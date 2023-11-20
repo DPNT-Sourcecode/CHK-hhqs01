@@ -7,8 +7,8 @@ class TestCheckout():
 
 # B 30 ABCDE 155 EE 80
 
-        expected_price = 10
-        actual_price = checkout_solution.checkout("FFF")
+        expected_price = 40
+        actual_price = checkout_solution.checkout("FFFFFF")
         assert expected_price == actual_price
 
     def test_basket_invalid(self):
@@ -194,5 +194,6 @@ class TestCheckout():
         actual_basket = checkout_solution.handle_get_free_offers(basket, offers)
 
         assert expected_basket == actual_basket
+
 
 
