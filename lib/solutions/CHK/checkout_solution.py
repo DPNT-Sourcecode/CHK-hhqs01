@@ -87,8 +87,13 @@ def apply_offers(basket, price):
 
     return price
 
+def handle_get_free_offers(item, basket, price, offers):
+    for offer in offers:
+        apply_times = basket[item] // offer["count"]
+
 def _is_valid_input(character):
     return character in ["A", "B", "C", "D", "E"]
+
 
 
 
