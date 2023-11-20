@@ -8,7 +8,7 @@ class TestCheckout():
 
 ### AAA 130, AAAA 180, AAAAA 200
 
-        expected_price = 0
+        expected_price = 130
         actual_price = checkout_solution.checkout("AAA")
         assert expected_price == actual_price
 
@@ -198,6 +198,7 @@ class TestCheckout():
 
         assert expected_price == actual_price
         assert expected_basket == actual_basket
+
 
 
 

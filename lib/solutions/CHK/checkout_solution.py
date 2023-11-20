@@ -45,6 +45,7 @@ def checkout(skus):
     except ValueError:
         return -1
 
+    print(basket)
     return compute_price(basket)
 
 def create_basket(skus):
@@ -62,6 +63,7 @@ def compute_price(basket):
     for item in basket:
         price += compute_price_for_item(item, basket)
 
+    print("Price before offers", price)
     price = apply_offers(basket, price)
     return price
 
@@ -73,8 +75,11 @@ def compute_price_for_item(item, basket):
     
 
 def apply_offers(basket, price):
-    bundle_offers = [bundle_offer for bundle_offer in OFFERS if bundle_offer["type"] == "BUNDLE_OFFER"]
+    bundle_offers = [bundle_offer for bundle_offer in OFFERS if bundle_offer["type"] == "BUNDLE"]
     get_free_offers = [get_free_offer for get_free_offer in OFFERS if get_free_offer["type"] == "GET_FREE"]
+
+    print(bundle_offers)
+    print(get_free_offers)
 
     price, basket = handle_bundle_offers(basket, price, bundle_offers)
     price, basket = handle_get_free_offers(basket, price, get_free_offers)
@@ -108,5 +113,6 @@ def handle_get_free_offers(basket, price, offers):
 
 def _is_valid_input(character):
     return character in ["A", "B", "C", "D", "E"]
+
 
 
