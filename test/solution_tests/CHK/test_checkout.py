@@ -149,6 +149,27 @@ class TestCheckout():
         assert expected_price == actual_price
         assert expected_basket == actual_basket
 
+    def test_hande_bundle_offer_multiple_offers_smaller_unsatisfied(self):    
+        basket = {
+            "A": 6,
+            "B": 3
+        }
+
+        price = 6 * 50 + 3 * 30
+
+        offers = [
+            {"for_item": "A", "type": "BUNDLE", "count": 5, "price": 200},
+            {"for_item": "A", "type": "BUNDLE", "count": 3, "price": 130}
+        ]
+
+        expected_price = 200 + 50
+        expected_basket = {"A": 1, "B": 3}
+
+        actual_price, actual_basket = checkout_solution.handle_bundle_offers(basket, price, offers)
+
+        assert expected_price == actual_price
+        assert expected_basket == actual_basket
+
     def test_handle_get_free_offers(self):
         item = "E"
         
@@ -170,6 +191,7 @@ class TestCheckout():
 
         assert expected_price == actual_price
         assert expected_basket == actual_basket
+
 
 
 
