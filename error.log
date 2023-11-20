@@ -1,0 +1,50 @@
+Running using packaged JRE:
+[1;30mINFO  [main]      [0;39m - Starting recording app
+[1;30mINFO  [main]      [0;39m - Checking diskspace
+[1;30mINFO  [main]      [0;39m - Available disk space on the volume (or drive) '/': 80GB (82942.000MB)
+[1;30mINFO  [main]      [0;39m - Start S3 Sync session
+[1;30mINFO  [main]      [0;39m - Logging initialized @1258ms to org.eclipse.jetty.util.log.Slf4jLog
+[1;31mERROR [SourceRec] [0;39m - SourceCode recorder encountered exception. Recording has been stopped.
+tdl.record.sourcecode.record.SourceCodeRecorderException: Failed to open destination
+	at tdl.record.sourcecode.record.SourceCodeRecorder.start(SourceCodeRecorder.java:146) ~[record-and-upload.jar:na]
+	at tdl.record_upload.sourcecode.SourceCodeRecordingThread.run(SourceCodeRecordingThread.java:42) ~[record-and-upload.jar:na]
+Caused by: java.nio.file.AccessDeniedException: /Users/DMNDPL1/Code/as-takehome/accelerate_runner/record/localstore/sourcecode_20231120T234421.srcs.lock
+	at sun.nio.fs.UnixException.translateToIOException(UnixException.java:84) ~[na:1.8.0_191]
+	at sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:102) ~[na:1.8.0_191]
+	at sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:107) ~[na:1.8.0_191]
+	at sun.nio.fs.UnixFileSystemProvider.newByteChannel(UnixFileSystemProvider.java:214) ~[na:1.8.0_191]
+	at java.nio.file.spi.FileSystemProvider.newOutputStream(FileSystemProvider.java:434) ~[na:1.8.0_191]
+	at java.nio.file.Files.newOutputStream(Files.java:216) ~[na:1.8.0_191]
+	at java.nio.file.Files.write(Files.java:3292) ~[na:1.8.0_191]
+	at tdl.record.sourcecode.record.SourceCodeRecorder.start(SourceCodeRecorder.java:135) ~[record-and-upload.jar:na]
+	... 1 common frames omitted
+[1;30mINFO  [Upload]    [0;39m - Sync local files with remote
+[1;30mINFO  [Metrics]   [0;39m - tick   1, video recoding disabled
+[31mWARN  [HealthCheck][0;39m - One or more recording threads are not running correctly. Stopping all threads.
+[1;30mINFO  [HealthCheck][0;39m - Stopping recording
+[1;30mINFO  [main]      [0;39m - jetty-9.4.z-SNAPSHOT
+[1;30mINFO  [main]      [0;39m - Started ServerConnector@22875539{HTTP/1.1,[http/1.1]}{localhost:41375}
+[1;30mINFO  [main]      [0;39m - Started @1335ms
+[1;30mINFO  [Upload]    [0;39m - Uploading file record/localstore/record-and-upload-20231118T175829.log
+[1;30mINFO  [main]      [0;39m - Stopping health check timer
+[1;30mINFO  [main]      [0;39m - Stopped ServerConnector@22875539{HTTP/1.1,[http/1.1]}{localhost:41375}
+[1;30mINFO  [main]      [0;39m - Upload remaining parts and finalise recording session
+[31mWARN  [Upload]    [0;39m - Error during uploading : Failed to complete multipart request: CHK/hhqs01/record-and-upload-20231118T175829.log Trying next time...
+[1;30mINFO  [Upload]    [0;39m - Uploading file record/localstore/record-and-upload-20231118T175829.log
+[31mWARN  [Upload]    [0;39m - Error during uploading : Failed to complete multipart request: CHK/hhqs01/record-and-upload-20231118T175829.log Trying next time...
+[1;30mINFO  [Upload]    [0;39m - Uploading file record/localstore/record-and-upload-20231118T175829.log
+[1;31mERROR [Upload]    [0;39m - Error during uploading, can't upload file due to exception: Failed to complete multipart request: CHK/hhqs01/record-and-upload-20231118T175829.log
+[1;30mINFO  [Upload]    [0;39m - Finished uploading file record/localstore/record-and-upload-20231118T175829.log
+[1;30mINFO  [Upload]    [0;39m - Finished uploading file record/localstore/record-and-upload-20231118T175829.log
+[1;30mINFO  [Upload]    [0;39m - Finished uploading file record/localstore/record-and-upload-20231118T175829.log
+[1;30mINFO  [main]      [0;39m - Uploading file record/localstore/record-and-upload-20231118T175829.log
+[31mWARN  [main]      [0;39m - Error during uploading : Failed to complete multipart request: CHK/hhqs01/record-and-upload-20231118T175829.log Trying next time...
+[1;30mINFO  [main]      [0;39m - Uploading file record/localstore/record-and-upload-20231118T175829.log
+[31mWARN  [main]      [0;39m - Error during uploading : Failed to complete multipart request: CHK/hhqs01/record-and-upload-20231118T175829.log Trying next time...
+[1;30mINFO  [main]      [0;39m - Uploading file record/localstore/record-and-upload-20231118T175829.log
+[1;31mERROR [main]      [0;39m - Error during uploading, can't upload file due to exception: Failed to complete multipart request: CHK/hhqs01/record-and-upload-20231118T175829.log
+[1;30mINFO  [main]      [0;39m - Finished uploading file record/localstore/record-and-upload-20231118T175829.log
+[1;30mINFO  [main]      [0;39m - Finished uploading file record/localstore/record-and-upload-20231118T175829.log
+[1;30mINFO  [main]      [0;39m - Finished uploading file record/localstore/record-and-upload-20231118T175829.log
+[31mWARN  [main]      [0;39m - ~~~~~~ Stopped ~~~~~~
+[1;30mINFO  [main]      [0;39m - Stop S3 Sync session
