@@ -74,7 +74,7 @@ def compute_price_for_item(item, basket):
     return item_number_to_account * PRICE_TABLE[item]
     
 
-def apply_offers(basket, price):
+def apply_offers(basket):
     bundle_offers = [bundle_offer for bundle_offer in OFFERS if bundle_offer["type"] == "BUNDLE"]
     get_free_offers = [get_free_offer for get_free_offer in OFFERS if get_free_offer["type"] == "GET_FREE"]
 
@@ -98,13 +98,8 @@ def handle_get_free_offers(basket, price, offers):
     for offer in offers:
         item = offer["for_item"]
         apply_times = basket.get(item, 0) // offer["count"]
-        print("Applying offer", apply_times)
-        # This assumes you only get one free
-        print(offer)
-        items_go_get_free = basket.get(offer["item_free"], 0)
-        print("Items for free", items_go_get_free)
-        discount = min(apply_times, items_go_get_free) * PRICE_TABLE[offer["item_free"]]
-        print(discount)
+        items_for_free = basket.get(offer["item_free"], 0)
+        discount = min(apply_times, items_for_free) * PRICE_TABLE[offer["item_free"]]       
         basket[offer["item_free"]] = min(0, basket.get(offer["item_free"], 0) - apply_times)
         price -= discount
 
@@ -115,9 +110,3 @@ def handle_get_free_offers(basket, price, offers):
 
 def _is_valid_input(character):
     return character in ["A", "B", "C", "D", "E"]
-
-
-
-
-
-
