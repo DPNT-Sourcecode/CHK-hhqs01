@@ -4,6 +4,8 @@ class TestCheckout():
 
     def test_checkout(self):
         assert 1 == 1
+        SKUS = "AAAAAAAAABBBCEE"
+        price = checkout_solution.checkout(skus)
 
     def test_basket_invalid(self):
         try:
@@ -162,7 +164,7 @@ class TestCheckout():
             {"for_item": "A", "type": "BUNDLE", "count": 3, "price": 130}
         ]
 
-        expected_price = 200 + 50
+        expected_price = 200 + 50 + 3 * 30
         expected_basket = {"A": 1, "B": 3}
 
         actual_price, actual_basket = checkout_solution.handle_bundle_offers(basket, price, offers)
@@ -191,6 +193,7 @@ class TestCheckout():
 
         assert expected_price == actual_price
         assert expected_basket == actual_basket
+
 
 
 
