@@ -3,15 +3,15 @@ PRICE_TABLE = {
         "price": 50,
         "offer": [
             {
+                "count": 5,
+                "offer_price": 200,
+                "TYPE": "BUNDLE"
+            },
+            {
                 "count": 3,
                 "offer_price": 130,
                 "TYPE": "BUNDLE"
             },
-            {
-                "count": 5,
-                "offer_price": 200,
-                "TYPE": "BUNDLE"
-            }
         ]
     },
     "B" : {
@@ -106,4 +106,5 @@ def handle_get_free_offers(item, basket, price, offers):
 
 def _is_valid_input(character):
     return character in ["A", "B", "C", "D", "E"]
+
 
