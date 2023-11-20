@@ -105,16 +105,18 @@ def compute_price_for_item(item, basket):
     
 
 def apply_offers(basket, price):
-    for item in basket:
-        if "offer" in PRICE_TABLE["ITEM"]:
-            bundle_offers = [bundle_offer for bundle_offer in PRICE_TABLE[item]["offer"] if bundle_offer["type"] == "BUNDLE_OFFER"]
-            get_free_offers = [get_free_offer for get_free_offer in PRICE_TABLE[item]["offer"] if get_free_offer["type"] == "GET_FREE"]
+    bundle_offers = [bundle_offer for bundle_offer in PRICE_TABLE[item]["offer"] if bundle_offer["type"] == "BUNDLE_OFFER"]
+    get_free_offers = [get_free_offer for get_free_offer in PRICE_TABLE[item]["offer"] if get_free_offer["type"] == "GET_FREE"]
+
+    for bundle_offer in bundle_offer:
+
 
 
     return price
 
-def handle_bundle_offers(item, basket, price, offers):
+def handle_bundle_offers(basket, price, offers):
     for offer in offers:
+        item = offer["for_item"]
         apply_times = basket[item] // offer["count"]
         total_discount = apply_times * ((PRICE_TABLE[item]["price"] * offer["count"]) - offer["price"])
 
@@ -123,8 +125,9 @@ def handle_bundle_offers(item, basket, price, offers):
 
     return (price, basket)
 
-def handle_get_free_offers(item, basket, price, offers):
+def handle_get_free_offers(basket, price, offers):
     for offer in offers:
+        item = offer["for_item"]
         apply_times = basket[item] // offer["count"]
         # This assumes you only get one free
         discount = min(apply_times, basket[offer["item_free"]]) * PRICE_TABLE[offer["item_free"]]["price"]
@@ -138,6 +141,7 @@ def handle_get_free_offers(item, basket, price, offers):
 
 def _is_valid_input(character):
     return character in ["A", "B", "C", "D", "E"]
+
 
 
 
