@@ -102,7 +102,7 @@ OFFERS = [
             },
             {
                 "for_item": "U",
-                "count": 5,
+                "count": 4,
                 "type": "GET_FREE",
                 "item_free": "U"
             },
@@ -187,3 +187,4 @@ def handle_get_free_offers(basket, offers):
 
 def _is_valid_input(character):
     return character in PRICE_TABLE
+
