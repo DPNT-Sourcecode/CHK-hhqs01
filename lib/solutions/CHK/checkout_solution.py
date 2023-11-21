@@ -58,16 +58,16 @@ OFFERS = [
                 "type": "GET_FREE",
                 "item_free": "F"
             },
-            {
+                        {
                 "for_item": "H",
-                "count": 5,
-                "price": 45,
+                "count": 10,
+                "price": 80,
                 "type": "BUNDLE"
             },
             {
                 "for_item": "H",
-                "count": 10,
-                "price": 80,
+                "count": 5,
+                "price": 45,
                 "type": "BUNDLE"
             },
             {
@@ -108,15 +108,15 @@ OFFERS = [
             },
             {
                 "for_item": "V",
-                "count": 2,
-                "type": "BUNDLE",
-                "price": 90
-            },
-            {
-                "for_item": "V",
                 "count": 3,
                 "type": "BUNDLE",
                 "price": 130
+            },
+            {
+                "for_item": "V",
+                "count": 2,
+                "type": "BUNDLE",
+                "price": 90
             },
 ]
 
@@ -187,4 +187,5 @@ def handle_get_free_offers(basket, offers):
 
 def _is_valid_input(character):
     return character in PRICE_TABLE
+
 
