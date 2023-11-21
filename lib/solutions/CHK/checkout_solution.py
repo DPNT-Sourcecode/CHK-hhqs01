@@ -4,7 +4,27 @@ PRICE_TABLE = {
     "C" : 20,
     "D" : 15,
     "E" : 40,
-    "F" : 10
+    "F" : 10,
+    "G" : 20,
+    "H" : 10,
+    "I" : 35,
+    "J" : 60,
+    "K" : 80,
+    "L" : 90,
+    "M" : 15,
+    "N" : 40,
+    "O" : 10,
+    "P" : 50,
+    "Q" : 30,
+    "R" : 50,
+    "S" : 30,
+    "T" : 20,
+    "U" : 40,
+    "V" : 50,
+    "W" : 20,
+    "X" : 90,
+    "Y" : 10,
+    "Z" : 50,
 }  
 
 OFFERS = [
@@ -37,7 +57,67 @@ OFFERS = [
                 "count": 3,
                 "type": "GET_FREE",
                 "item_free": "F"
-            }
+            },
+            {
+                "for_item": "H",
+                "count": 5,
+                "price": 45,
+                "type": "BUNDLE"
+            },
+            {
+                "for_item": "H",
+                "count": 10,
+                "price": 80,
+                "type": "BUNDLE"
+            },
+            {
+                "for_item": "K",
+                "count": 2,
+                "price": 150,
+                "type": "BUNDLE"
+            },
+            {
+                "for_item": "N",
+                "count": 3,
+                "type": "GET_FREE",
+                "item_free": "M"
+            },
+             {
+                "for_item": "P",
+                "count": 5,
+                "type": "BUNDLE",
+                "price": 200
+            },
+            {
+                "for_item": "Q",
+                "count": 3,
+                "type": "BUNDLE",
+                "price": 80
+            },
+            {
+                "for_item": "R",
+                "count": 3,
+                "type": "GET_FREE",
+                "item_free": "Q"
+            },
+            {
+                "for_item": "U",
+                "count": 5,
+                "type": "GET_FREE",
+                "item_free": "U"
+            },
+            {
+                "for_item": "V",
+                "count": 2,
+                "type": "BUNDLE",
+                "price": 90
+            },
+            {
+                "for_item": "V",
+                "count": 3,
+                "type": "BUNDLE",
+                "price": 130
+            },
 ]
 
 # noinspection PyUnusedLocal
@@ -107,6 +187,7 @@ def handle_get_free_offers(basket, offers):
 
 def _is_valid_input(character):
     return character in PRICE_TABLE
+
 
 
 
