@@ -12,7 +12,7 @@ PRICE_TABLE = {
     "H" : 10,
     "I" : 35,
     "J" : 60,
-    "K" : 80,
+    "K" : 70,
     "L" : 90,
     "M" : 15,
     "N" : 40,
@@ -220,6 +220,7 @@ def handle_get_free_offers(basket, offers):
 
 def _is_valid_input(character):
     return character in PRICE_TABLE
+
 
 
 
