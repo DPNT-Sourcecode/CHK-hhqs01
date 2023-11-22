@@ -184,14 +184,17 @@ def handle_bundle_offers(basket, price, offers):
 
 def handle_group_bundle_offers(basket, price, offers):
     for offer in offers:
-        items_in_offer = sorted({ item: count for item, count in basket.items() if item in offer["group"]}).reverse()
+        items_in_offer = sorted({ item: count for item, count in basket.items() if item in offer["group"]}, key=lambda x: x[1] ,reverse=True)
         
         item_count = sum(items_in_offer.values())
         apply_times = item_count // offer["count"]
         items_to_be_discounted = apply_times * offer["count"]
 
         while items_to_be_discounted > 0:
+            priciest_item, priciest_item_count = items_in_offer
+            priciest_item_count = min(priciest_item_count, items_to_be_discounted)
 
+            items_in_offer[priciest_item] -= priciest_item_count # This is more used for debugging purposes
             
             items_to_be_discounted -= priciest_item_count
 
@@ -211,6 +214,7 @@ def handle_get_free_offers(basket, offers):
 
 def _is_valid_input(character):
     return character in PRICE_TABLE
+
 
 
 
