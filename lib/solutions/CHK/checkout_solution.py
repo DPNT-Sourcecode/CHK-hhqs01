@@ -189,23 +189,14 @@ def handle_group_bundle_offers(basket, price, offers):
     for offer in offers:
         # Get the basket items included in the offer, ordered by price, the more expensive ones first
         items_in_offer = OrderedDict(sorted({ item: count for item, count in basket.items() if item in offer["group"]}.items(), key=lambda x: PRICE_TABLE[x[0]] ,reverse=False))
-        print(items_in_offer)
         item_count = sum(items_in_offer.values())
         apply_times = item_count // offer["count"]
         items_to_be_discounted = apply_times * offer["count"]
-        print(items_to_be_discounted)
 
         while items_to_be_discounted > 0:
-            priciest_item, priciest_item_count = items_in_offer.popitem()
-            print("Pricy item", priciest_item)
-            print("Number of Pricy Item", priciest_item_count)
-            print("Items to be discounted", items_to_be_discounted)
-            print(items_in_offer)
+            priciest_item, priciest_item_count = items_in_offer.popitem()      
             priciest_item_count_to_discount = min(priciest_item_count, items_to_be_discounted) # Find out how many items to discount
-            print("Curr items to discount", priciest_item_count_to_discount)
-            print("Curr item price", PRICE_TABLE[priciest_item])
             discount = priciest_item_count_to_discount * (PRICE_TABLE[priciest_item]  - (offer["price"] / offer["count"]))
-            print(discount)
 
             price -= discount
             basket[priciest_item] -= priciest_item_count_to_discount

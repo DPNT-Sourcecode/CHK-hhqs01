@@ -227,16 +227,23 @@ class TestCheckout():
         price = 20 * 3 + 20 + 17
         offers = [{"type": "GROUP_BUNDLE", "group": ["S", "T", "X"], "count": 3, "price": 45}]
 
-        expected_basket = {
+        expected_basket_1 = {
             "S": 0,
             "T": 1,
             "X": 1 
         }
+
+        expected_basket_2 = {
+            "S": 1,
+            "T": 0,
+            "X": 1 
+        }
+
         expected_price = 45 + 20 + 17
 
         actual_price, actual_basket = checkout_solution.handle_group_bundle_offers(basket, price, offers)
 
-        #assert expected_basket == actual_basket
+        assert expected_basket_1 == actual_basket or expected_basket_2 == actual_basket
         assert expected_price == actual_price
 
 #TestCheckout().test_handle_group_bundle_offers()
