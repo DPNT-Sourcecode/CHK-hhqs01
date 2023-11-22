@@ -20,14 +20,14 @@ PRICE_TABLE = {
     "P" : 50,
     "Q" : 30,
     "R" : 50,
-    "S" : 30,
+    "S" : 20,
     "T" : 20,
     "U" : 40,
     "V" : 50,
     "W" : 20,
-    "X" : 90,
-    "Y" : 10,
-    "Z" : 50,
+    "X" : 17,
+    "Y" : 20,
+    "Z" : 21,
 }  
 
 OFFERS = [
@@ -203,7 +203,7 @@ def handle_group_bundle_offers(basket, price, offers):
             print(items_in_offer)
             priciest_item_count_to_discount = min(priciest_item_count, items_to_be_discounted) # Find out how many items to discount
             print("Curr items to discount", priciest_item_count_to_discount)
-
+            print("Curr item price", PRICE_TABLE[priciest_item])
             discount = priciest_item_count_to_discount * (PRICE_TABLE[priciest_item]  - (offer["price"] / offer["count"]))
             print(discount)
 
@@ -229,3 +229,4 @@ def handle_get_free_offers(basket, offers):
 
 def _is_valid_input(character):
     return character in PRICE_TABLE
+
