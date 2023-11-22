@@ -165,7 +165,8 @@ def apply_offers(basket):
 
     price = compute_price(basket)
 
-    price, _ = handle_bundle_offers(basket, price, bundle_offers)
+    price, basket = handle_bundle_offers(basket, price, bundle_offers)
+    price, _ = handle_group_bundle_offers(basket, price, group_bundle_offers)
 
     return price
 
@@ -185,6 +186,7 @@ def handle_group_bundle_offers(basket, price, offers):
         items_in_offer = { item: count for item, count in basket.items() if item in offer["group"]}
         item_count = sum(items_in_offer.values())
         apply_times = item_count // offer["count"]
+        while 
 
 def handle_get_free_offers(basket, offers):
     for offer in offers:
@@ -199,5 +201,6 @@ def handle_get_free_offers(basket, offers):
 
 def _is_valid_input(character):
     return character in PRICE_TABLE
+
 
 
