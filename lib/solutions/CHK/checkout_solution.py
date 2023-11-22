@@ -197,11 +197,12 @@ def handle_group_bundle_offers(basket, price, offers):
 
         while items_to_be_discounted > 0:
             priciest_item, priciest_item_count = items_in_offer.popitem()
-            print(priciest_item)
-            print(priciest_item_count)
-            print(items_to_be_discounted)
+            print("Pricy item", priciest_item)
+            print("Number of Pricy Item", priciest_item_count)
+            print("Items to be discounted", items_to_be_discounted)
             print(items_in_offer)
             priciest_item_count_to_discount = min(priciest_item_count, items_to_be_discounted) # Find out how many items to discount
+            print("Curr items to discount", priciest_item_count_to_discount)
 
             discount = priciest_item_count_to_discount * (PRICE_TABLE[priciest_item]  - (offer["price"] / offer["count"]))
             print(discount)
@@ -228,8 +229,3 @@ def handle_get_free_offers(basket, offers):
 
 def _is_valid_input(character):
     return character in PRICE_TABLE
-
-
-
-
-
