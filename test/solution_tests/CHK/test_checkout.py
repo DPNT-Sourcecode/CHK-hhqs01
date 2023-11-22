@@ -195,4 +195,3 @@ class TestCheckout():
 
         assert expected_basket == actual_basket
 
-
