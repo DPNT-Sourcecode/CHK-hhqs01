@@ -221,7 +221,8 @@ class TestCheckout():
         basket = {
             "S": 3,
             "T": 1,
-            "X": 1 
+            "X": 1,
+            "O": 3
         }
 
         price = 20 * 3 + 20 + 17
@@ -230,13 +231,15 @@ class TestCheckout():
         expected_basket_1 = {
             "S": 0,
             "T": 1,
-            "X": 1 
+            "X": 1,
+            "O": 3
         }
 
         expected_basket_2 = {
             "S": 1,
             "T": 0,
-            "X": 1 
+            "X": 1,
+            "O": 3
         }
 
         expected_price = 45 + 20 + 17
