@@ -188,8 +188,8 @@ def handle_bundle_offers(basket, price, offers):
 def handle_group_bundle_offers(basket, price, offers):
     for offer in offers:
         # Get the basket items included in the offer, ordered by price, the more expensive ones first
-        items_in_offer = OrderedDict(sorted({ item: count for item, count in basket.items() if item in offer["group"]}.items(), key=lambda x: PRICE_TABLE[x[0]] ,reverse=True))
-        
+        items_in_offer = OrderedDict(sorted({ item: count for item, count in basket.items() if item in offer["group"]}.items(), key=lambda x: PRICE_TABLE[x[0]] ,reverse=False))
+        print(items_in_offer)
         item_count = sum(items_in_offer.values())
         apply_times = item_count // offer["count"]
         items_to_be_discounted = apply_times * offer["count"]
@@ -208,8 +208,8 @@ def handle_group_bundle_offers(basket, price, offers):
             print(discount)
 
             price -= discount
-            basket[priciest_item] -= priciest_item_count
-            items_to_be_discounted -= priciest_item_count
+            basket[priciest_item] -= priciest_item_count_to_discount
+            items_to_be_discounted -= priciest_item_count_to_discount
 
         basket.update(items_in_offer)
 
@@ -229,4 +229,5 @@ def handle_get_free_offers(basket, offers):
 
 def _is_valid_input(character):
     return character in PRICE_TABLE
+
 
