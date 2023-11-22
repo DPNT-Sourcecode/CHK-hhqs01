@@ -195,3 +195,19 @@ class TestCheckout():
 
         assert expected_basket == actual_basket
 
+    def test_handle_group_bundle_offers(self):
+        basket = {
+            "S": 1,
+            "T": 1,
+            "X": 1 
+        }
+
+        price = 20 + 20 + 17
+
+
+        expected_basket = {
+            "S": 0,
+            "T": 0,
+            "X": 0 
+        }
+        expected_price = 45
