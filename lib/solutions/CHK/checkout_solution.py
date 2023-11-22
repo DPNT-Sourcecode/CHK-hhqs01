@@ -205,8 +205,6 @@ def handle_group_bundle_offers(basket, price, offers):
 
             price -= priciest_item_count_to_discount * (PRICE_TABLE[priciest_item]  - (offer["price"] / offer["count"]))
 
-            items_in_offer[priciest_item] = priciest_item_count - priciest_item_count_to_discount # This is more used for debugging purposes
-
             items_to_be_discounted -= priciest_item_count
 
         basket.update(items_in_offer)
