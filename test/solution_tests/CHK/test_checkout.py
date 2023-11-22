@@ -216,3 +216,5 @@ class TestCheckout():
 
         assert expected_basket == actual_basket
         assert expected_price == actual_price
+
+TestCheckout().test_handle_group_bundle_offers()
