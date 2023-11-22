@@ -188,7 +188,13 @@ def handle_group_bundle_offers(basket, price, offers):
         item_count = sum(items_in_offer.values())
         apply_times = item_count // offer["count"]
         items_to_be_discounted = apply_times * offer["count"]
-        while 
+        while items_to_be_discounted > 0:
+
+            
+            items_to_be_discounted -= priciest_item_count
+
+
+    return (0, {})
 
 def handle_get_free_offers(basket, offers):
     for offer in offers:
@@ -203,6 +209,7 @@ def handle_get_free_offers(basket, offers):
 
 def _is_valid_input(character):
     return character in PRICE_TABLE
+
 
 
 
