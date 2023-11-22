@@ -118,6 +118,12 @@ OFFERS = [
                 "type": "BUNDLE",
                 "price": 90
             },
+            {
+                "group": ["S", "T", "X", "Y", "Z"],
+                "count": 3,
+                "type": "BUNDLE_GROUP",
+                "price": 45
+            },
 ]
 
 # noinspection PyUnusedLocal
@@ -187,3 +193,4 @@ def handle_get_free_offers(basket, offers):
 
 def _is_valid_input(character):
     return character in PRICE_TABLE
+
