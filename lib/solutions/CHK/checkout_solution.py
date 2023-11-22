@@ -208,7 +208,7 @@ def handle_group_bundle_offers(basket, price, offers):
             print(discount)
 
             price -= discount
-
+            basket[priciest_item] -= priciest_item_count
             items_to_be_discounted -= priciest_item_count
 
         basket.update(items_in_offer)
